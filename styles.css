@@ -76,3 +76,104 @@ button.btn-forgotPsw {
     box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
 }
 
+
+/* Estilos Admin diego */
+body {
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --color-primary: #0d6efd;
+    --color-secondary: #6c757d;
+    --color-success: #198754;
+    --color-warning: #ffc107;
+    --color-danger: #dc3545;
+}
+
+.img-background {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: url('./imgs/WhatsApp Image 2025-09-25 at 10.35.53 PM.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    overflow-y: auto;
+}
+
+header .navbar {
+    background-color: rgba(248, 249, 250, 0.95) !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.metric-card {
+    transition: transform 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+}
+
+.metric-value {
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.dashboard-title {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-header.bg-primary {
+    background-color: var(--color-primary) !important;
+    font-weight: 600;
+}
+
+.dashboard-background {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+
+
+
+.img-background {
+   
+    background: url('./imgs/WhatsApp Image 2025-09-25 at 10.35.53 PM.jpeg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+
+
+header .navbar {
+    background-color: rgba(248, 249, 250, 0.95) !important;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+
+
+
+.dashboard-title {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
