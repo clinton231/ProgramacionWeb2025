@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 
-    //Harcodie los datos estos datos podrian venir de una api externa luego veremos
+
     const kpiData = {
         totalCamas: 150,
         camasOcupadas: 125,
@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('alertasActivasValue').textContent = kpiData.alertasActivas;
 
 
-    // Grafico ocupacion chartjs 
     const ctx = document.getElementById('ocupacionChart').getContext('2d');
 
     const ocupacionChart = new Chart(ctx, {
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
             datasets: [{
                 label: 'Camas Ocupadas',
-                data: [110, 115, 120, 125, 128, 125, 130], // Estos datos los cargue al azar
+                data: [110, 115, 120, 125, 128, 125, 130],
                 backgroundColor: 'rgba(13, 110, 253, 0.2)',
                 borderColor: 'rgba(13, 110, 253, 1)',
                 borderWidth: 2,

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthWay - Configuracion del Sistema</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="img-background dashboard-background">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">HealthWay</a>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./admin-dashboard.html">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="GestionUsuarios.html">Gestion de Usuarios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./reportesparabuscarpaciente.html">Reportes</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./Gestion_Inventario.html">Inventario</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./Configuracion_Sistema.html">Configuracion</a></li>
+                            <li class="nav-item"><a class="nav-link" href="./auditoria_logs.html">Auditoria</a></li>
+                        </ul>
+                        <div class="d-flex align-items-center"><span class="me-3 text-secondary">Administrador</span>
+                            <a href="index.html" class="btn btn-outline-danger">Cerrar Sesion <i class="bi bi-box-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="container-fluid py-4">
+            <h1 class="mb-4 dashboard-title"><i class="bi bi-gear-fill me-2"></i>Configuracion Central del Sistema</h1>
+            <div class="card shadow-lg">
+                <div class="card-header bg-dark text-white p-0">
+                    <ul class="nav nav-tabs nav-tabs-config" id="configTabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#roles" role="tab">Roles y Permisos</a></li>
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#catalogos" role="tab">Catalogos Maestros</a></li>
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#parametros" role="tab">Parametros Globales</a></li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="configTabContent">
+                        <div class="tab-pane fade show active" id="roles" role="tabpanel">
+                            <h4 class="mb-3 text-primary">Definicion de Permisos por Rol</h4>
+                            <div class="row">
+                                <div class="col-md-4"><label for="rolSelect" class="form-label">Seleccionar Rol</label>
+                                    <select class="form-select" id="rolSelect"><option selected value="admin">Administrador</option><option value="medico">Medico</option><option value="enfermero">Enfermero</option></select>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card p-3 mt-3 mt-md-0">
+                                        <h5 class="text-secondary">Permisos para: <span id="currentRol">Administrador</span></h5>
+                                        <div id="permisosList" class="row"></div>
+                                        <button id="savePermissionsBtn" class="btn btn-primary mt-3 w-50 mx-auto" disabled>Guardar Permisos</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="catalogos" role="tabpanel">
+                            <h4 class="mb-3 text-primary">Mantenimiento de Datos Base</h4>
+                            <p>Gestione las listas predefinidas usadas en el sistema.</p>
+                            <div class="list-group">
+                                <button type="button" class="list-group-item list-group-item-action" data-catalogo="medicamentos"><i class="bi bi-capsule me-2"></i>Medicamentos Registrados (150 Items)</button>
+                                <button type="button" class="list-group-item list-group-item-action" data-catalogo="ubicaciones"><i class="bi bi-building me-2"></i>Ubicaciones y Camas (50 Items)</button>
+                                <button type="button" class="list-group-item list-group-item-action" data-catalogo="diagnosticos"><i class="bi bi-clipboard-pulse me-2"></i>Diagnosticos Comunes (CIE-10)</button>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="parametros" role="tabpanel">
+                            <h4 class="mb-3 text-primary">Reglas y Alertas Globales</h4>
+                            <form>
+                                <div class="mb-3"><label for="minStockAlert" class="form-label">Umbral de Alerta de Stock Minimo (%)</label><input type="number" class="form-control" id="minStockAlert" value="20"><small class="form-text text-muted">Porcentaje minimo para disparar una alerta de inventario.</small></div>
+                                <div class="mb-3"><label for="signosVitalesTimeout" class="form-label">Tiempo Limite para Registro de Signos Vitales (Horas)</label><input type="number" class="form-control" id="signosVitalesTimeout" value="4"><small class="form-text text-muted">Tiempo sin registro antes de generar una alerta critica en T.I.</small></div>
+                                <button type="submit" class="btn btn-primary">Aplicar Cambios Globales</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="./script.js"></script>
+    <script defer src="./configuracion_sistema.js"></script>
+</body>
+
+</html>

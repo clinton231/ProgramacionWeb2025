@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // --- 1. Lógica para las Métricas (KPIs) ---
+
     const kpiData = {
         totalCamas: 150,
         camasOcupadas: 125,
@@ -10,8 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const tasa = ((kpiData.camasOcupadas / kpiData.totalCamas) * 100).toFixed(1);
-
-    // Actualizar el DOM de KPIs (Se usa if para asegurar que el elemento exista)
     const ocupadasValue = document.getElementById('ocupadasValue');
     if (ocupadasValue) ocupadasValue.textContent = `${kpiData.camasOcupadas} / ${kpiData.totalCamas}`;
 
@@ -25,12 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (alertasActivasValue) alertasActivasValue.textContent = kpiData.alertasActivas;
 
 
-    // --- 2. Gráfico de Ocupación con Chart.js (CORRECCIÓN DE ERROR) ---
     const chartElement = document.getElementById('ocupacionChart');
 
-    // VERIFICAMOS SI EL ELEMENTO EXISTE Y SI YA TIENE UN GRÁFICO ASOCIADO
     if (chartElement) {
-        // Esto es clave: Si ya existe una instancia de gráfico, la destruimos antes de crear una nueva.
         const existingChart = Chart.getChart(chartElement);
         if (existingChart) {
             existingChart.destroy();
@@ -73,13 +68,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 3. Lógica para Generar y Mostrar ALERTAS CRÍTICAS ---
+
 
     function loadCriticalAlerts() {
         const criticalAlertsList = document.getElementById('criticalAlertsList');
         if (!criticalAlertsList) return;
 
-        // SIMULACIÓN DE DATOS DE ALERTAS
         const alertsData = [{
                 ubicacion: 'T.I. - Cama 4',
                 complejidad: 'ALTA (Ventilación Asistida)',
@@ -121,14 +115,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    loadCriticalAlerts();
+    // loadCriticalAlerts();
 
-    // --- 4. Lógica de Navegación/Gestión (Simulación) ---
-    const manageUsersBtn = document.getElementById('manageUsersBtn');
-    if (manageUsersBtn) {
-        manageUsersBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('Redirigiendo a la pantalla de Gestión de Usuarios (Falta construir la vista)');
-        });
-    }
+    // const manageUsersBtn = document.getElementById('manageUsersBtn');
+    // if (manageUsersBtn) {
+    //     manageUsersBtn.addEventListener('click', function(e) {
+    //         e.preventDefault();
+    //         alert('Redirigiendo a la pantalla de Gestión de Usuarios (Falta construir la vista)');
+    //     });
+    // }
 });
